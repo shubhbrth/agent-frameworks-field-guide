@@ -1,0 +1,21 @@
+[project]
+name = "agent-frameworks-field-guide"
+version = "0.1.0"
+description = "Companion examples for a LangChain vs LangGraph vs Deep Agents article series."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "deepagents>=0.6.8",
+    "langchain>=1.1.0",
+    "langchain-openrouter>=0.0.1",
+    "langgraph>=1.0.0",
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+]
+
+[tool.uv]
+package = true
+
+[build-system]
+requires = ["uv_build>=0.9.0,<0.10.0"]
+build-backend = "uv_build"
