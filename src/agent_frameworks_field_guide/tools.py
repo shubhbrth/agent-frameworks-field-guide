@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import sys
 
 from agent_frameworks_field_guide.sample_data import (
     ARTICLE_FORMATS,
@@ -38,19 +39,25 @@ def suggest_content_angles(topic: str = DEFAULT_TOPIC) -> str:
     )
 
 
+def _print_text(text: object) -> None:
+    output = str(text)
+    sys.stdout.buffer.write(output.encode("utf-8"))
+    sys.stdout.buffer.write(b"\n")
+
+
 def print_final_message(result: object) -> None:
     """Print the most useful final response shape across the examples."""
     if isinstance(result, dict):
         if "structured_response" in result:
             structured = result["structured_response"]
             if hasattr(structured, "model_dump_json"):
-                print(structured.model_dump_json(indent=2))
+                _print_text(structured.model_dump_json(indent=2))
             else:
-                print(structured)
+                _print_text(structured)
             return
         messages = result.get("messages")
         if messages:
             final_message = messages[-1]
-            print(getattr(final_message, "content", final_message))
+            _print_text(getattr(final_message, "content", final_message))
             return
-    print(result)
+    _print_text(result)

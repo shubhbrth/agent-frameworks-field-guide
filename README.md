@@ -1,4 +1,4 @@
-﻿![Agent Frameworks Field Guide](images/cover_art.png)
+![Agent Frameworks Field Guide](images/cover_art.png)
 
 # Agent Frameworks Field Guide
 
@@ -15,16 +15,14 @@ Published so far:
 - [LangChain vs LangGraph vs Deep Agents: Which One Should You Use?](https://medium.com/@shubhambrth/langchain-vs-langgraph-vs-deep-agents-which-one-should-you-use-978e36c7f495)
 - [Building an AI Content Strategy Assistant with LangChain](https://medium.com/@shubhambrth/building-an-ai-content-strategy-assistant-with-langchain-569659066747)
 - [Building an AI Content Strategy Assistant with LangGraph](https://medium.com/@shubhambrth/building-an-ai-content-strategy-assistant-with-langgraph-606c3b68802c)
+- [Building the AI Content Strategy Assistant with Deep Agents](https://medium.com/@shubhambrth/building-the-ai-content-strategy-assistant-with-deep-agents-c841eb826b6f)
 
 ## Current Status
 
-The repo currently includes two runnable implementations:
+The repo currently includes three runnable implementations:
 
 - `examples/01_langchain`: AI Content Strategy Assistant built with LangChain
 - `examples/02_langgraph`: the same assistant rebuilt as an explicit LangGraph workflow
-
-Coming later:
-
 - `examples/03_deepagents`: the same assistant framed as a deeper Deep Agents work session
 
 ## What Is Included Now
@@ -47,8 +45,12 @@ agent-frameworks-field-guide/
     |-- 01_langchain/
     |   |-- agent.py
     |   `-- README.md
-    `-- 02_langgraph/
-        |-- graph.py
+    |-- 02_langgraph/
+    |   |-- graph.py
+    |   `-- README.md
+    `-- 03_deepagents/
+        |-- agent.py
+        |-- langgraph_deep_agent.py
         `-- README.md
 ```
 
@@ -95,7 +97,14 @@ Run the LangGraph example:
 uv run python examples/02_langgraph/graph.py
 ```
 
-Both examples use the same core prompt:
+Run the Deep Agents examples:
+
+```bash
+uv run python examples/03_deepagents/agent.py
+uv run python examples/03_deepagents/langgraph_deep_agent.py
+```
+
+All examples use the same core scenario:
 
 ```text
 Create a content strategy for a blog series about LangChain, LangGraph, and Deep Agents.
